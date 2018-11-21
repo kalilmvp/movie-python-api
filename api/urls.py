@@ -1,6 +1,7 @@
-from django.contrib import admin
-from django.urls import path
+from django.conf.urls import url
+from .views import MovieCreateView, MovieDetailView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r'^movies/$', MovieCreateView.as_view(), name='movies'),
+    url(r'^movies/(?P<pk>[0-9]+)$', MovieDetailView.as_view(), name='detail')
 ]
